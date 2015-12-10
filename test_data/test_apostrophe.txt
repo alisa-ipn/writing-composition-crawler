@@ -1,0 +1,9 @@
+ <td><strong>Врач</strong></td>
+
+            </tr>
+
+            <tr>
+
+              <td colspan="2" valign="top">Being a doctor has always been noble and prestigious. Since the times this profession has been introduced in the society, people respected and admired it. Doctors are people who provide the first aid when needed. Sometimes they work miracles, particularly when they are plastic surgeons or researchers who work on medical advances. The first ones are capable of changing appearances of people; the other ones can look into the topic of cloning. There are so many branches in medicine nowadays that it’s hard to count them. One of the most demanded professions is that of a dentist. In my opinion, these people are heroes. They can cure any type of toothache. In worst case scenarios they refer to tooth extraction. Traumatologist is also a highly regarded profession. These people are always there to help those who broke their legs or arms. People that I find really helpful are nurses. Doctors probably earn more money and they need to study longer, but nurses are their first helpers. No doctor can do without a nurse. Pediatricians are also important in any town and clinic. I call them multitasking doctors. They need to be experienced in many fields. They need to know the basics of surgery, neurology, otolaryngology, gastroenterology, cardiology, immunology etc. If I’d ever choose to become a doctor, I would stop on a profession of the pediatrician. It’s almost the same as a family doctor, who can treat most common illnesses, such as ordinary cold, sore throat, stomachache. In more serious cases pediatricians can give an advice which doctor to see.</td>
+
+              <td valign="top">Быть врачом благородно и престижно. 
