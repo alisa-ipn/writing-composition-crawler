@@ -7,14 +7,29 @@ Created on Sun Dec 13 16:16:30 2015
 
 import sys, os
 from bs4 import BeautifulSoup
+import codecs 
 
-DIR_OUT = "E://Study//SpeechRecognProject//crawl//corpus_v2//www.native-english.ru-v2"
+DIR_OUT = "E://Study//SpeechRecognProject//crawl//corpus//corpus_v3//www.native-english.ru"
 DIR_IN = "E://Study//SpeechRecognProject//crawl//raw_data//www.native-english.ru"
 TAG = 'p'
 
+def erase_tags(par): 
+    print "Got here-6"     
+    while par.find("<") > -1: 
+        start = par.find("<")
+        end = par.find(">")        
+        par = par[:start]+" "+par[end+1:]
+        par = par.strip()
+        print "Got here-7" 
+        print par
+    return par     
+        
+        
+
 def format_and_print(par, fout=sys.stdout): 
-    if len(par) < 100: 
-        return  False
+    
+    par = erase_tags(par)    
+    
     par = par.replace('\n', ' ')
     par = par.replace('  ', ' ')
     par = par.replace('\t', '')        
@@ -24,9 +39,11 @@ def format_and_print(par, fout=sys.stdout):
     par = par.replace('&#039;', "'")
     par = par.replace('&ldquo;', '"')
     par = par.replace('&rdquo;', '"')
-    par = par.strip() 
-    print "Got here-6"     
-    print >> fout, par 
+    
+            
+    #print par 
+    print "Got here-8"     
+    print >> fout, unicode(par) 
     return True
 
     
@@ -47,10 +64,14 @@ def main(argv):
                     print the_file
                     file_path = os.path.join(dir_path, the_file)
                     if os.path.isfile(file_path) and the_file != "_url_list.txt":
-                        fin = open(file_path, 'r')
+                        #fin = open(file_path, 'r')
+                        fin =  codecs.open(file_path, encoding = 'utf8', errors ='replace') 
+                        
                         file_name = the_file[:the_file.rfind(".")]+".txt"
                         fout_nm = os.path.join(dir_out_name, file_name)                        
-                        fout = open(fout_nm, 'a')
+                        #fout = open(fout_nm, 'a')
+                        fout = codecs.open(fout_nm, encoding = 'utf-8', mode = 'w') 
+                        
                         page = fin.read()
                         
                         print "Got here-3" 
@@ -60,8 +81,12 @@ def main(argv):
                         print "Got here-5" 
                         for tag in tags: 
                             if len(tag.contents) > 0:
-                                par = tag.contents[0]                                                                                                                                                      
-                                format_and_print(par, fout)
+                                #par = tag.contents[0]                                   
+                                par = unicode(tag) 
+                                print len(par) 
+                                if len(tag.contents[0]) > 100: 
+                                    print par 
+                                    format_and_print(par, fout)
                         fout.close()
         except Exception, e:
             print e
